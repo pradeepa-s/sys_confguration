@@ -1,0 +1,3 @@
+ST-LINK_CLI -ME
+ST-LINK_CLI -V -P %*
+ST-LINK_CLI -Rst
