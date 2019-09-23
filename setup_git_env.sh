@@ -9,3 +9,4 @@ USER_EMAIL="pradeepa.senanayake@resmed.com.au"
 git config --global user.name "$USER_NAME"
 git config --global user.email $USER_EMAIL
 git config --global core.autocrlf true
+git config --global credential.helper store
