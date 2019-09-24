@@ -103,25 +103,6 @@ endif
 EOT
 
 
-echo "Setting up CTRLP"
-
-cd $BUNDLE_DIR
-#git clone https://github.com/kien/ctrlp.vim.git ctrlp.vim
-#echo "set runtimepath^=~/.vim/bundle/ctrlp.vim" >> $VIM_RC
-cd $REPO_DIR
-
 echo "Setting up cscope"
 cp $REPO_DIR/vim_configs/cscope_maps.vim $PLUGIN_DIR
-
-echo "Setting up fugitive"
-cd $BUNDLE_DIR
-#git clone https://github.com/tpope/vim-fugitive.git vim-fugitive.vim
-#echo "set runtimepath^=~/.vim/bundle/vim-fugitive.vim" >> $VIM_RC
-cd $REPO_DIR
-
-echo "Setting up SimplyFold"
-cd $BUNDLE_DIR
-#git clone https://github.com/tmhedberg/SimpylFold.git SimplyFold.vim
-#echo "set runtimepath^=~/.vim/bundle/SimpleFold.vim" >> $VIM_RC
-cd $REPO_DIR
 
