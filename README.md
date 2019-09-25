@@ -25,3 +25,9 @@ Setting up:
 
 	- Source the .bashrc file
 		$: source ~/.bashrc
+
+Packages to look for:
+	* ripgrep
+	* ack
+	* fzf
+	* silverseracher
