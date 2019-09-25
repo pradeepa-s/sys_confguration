@@ -19,6 +19,7 @@ Setting up:
 		1. GIT
 		2. tmux
 		3. vim
+		4. fzf
 
 	- Run setup_my_system.sh -e <environment>
 		<environment>	:	w, h

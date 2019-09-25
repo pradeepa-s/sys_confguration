@@ -21,7 +21,9 @@ mkdir -p -v $BUNDLE_DIR
 mkdir -p -v $PLUGIN_DIR
 
 echo "Setting up vundle"
-git clone https://github.com/gmarik/Vundle.vim.git $BUNDLE_DIR/Vundle.vim
+cd $BUNDLE_DIR
+git clone https://github.com/gmarik/Vundle.vim.git Vundle.vim
+cd $REPO_DIR
 
 cat <<EOT >> $VIM_RC
 set nocompatible              " required
@@ -53,6 +55,9 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'vim-airline/vim-airline'
 
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -73,7 +78,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "search for text
-nmap <F3> :silent grep! -R --include=*.c --include=*.h <C-R><C-W> *<CR> :redr!<CR> :copen<CR>
+nmap <F3>1 :silent Ggrep! -r <C-R><C-W> *.c *.h<CR>:redr!<CR>:copen<CR>
+nmap <F3>2 :silent Ggrep! -r <C-R><C-W> *.cpp *.hpp<CR>:redr!<CR>:copen<CR>
+nmap <F3>3 :silent Ggrep! -r <C-R><C-W> *.py<CR>:redr!<CR>:copen<CR>
+nmap <F3>4 :silent Ggrep! -r <C-R><C-W> *<CR>:redr!<CR>:copen<CR>
 
 nmap <space> za
 
