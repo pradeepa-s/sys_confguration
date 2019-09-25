@@ -102,7 +102,6 @@ endif
 
 EOT
 
-
 echo "Setting up cscope"
 cp $REPO_DIR/vim_configs/cscope_maps.vim $PLUGIN_DIR
 

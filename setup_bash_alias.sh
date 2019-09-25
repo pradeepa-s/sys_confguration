@@ -6,7 +6,7 @@ cd ~
 touch .bashrc
 cp .bashrc .bashrc.pradeepa.backup
 
-echo <<EOT >> .bashrc
+cat <<EOT >> .bashrc
 # Pradeepa's aliases goes here:
 alias tmux='tmux -2'
 EOT
