@@ -100,6 +100,7 @@ else
   colorscheme zenburn
 endif
 
+set incsearch
 EOT
 
 echo "Setting up cscope"
