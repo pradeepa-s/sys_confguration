@@ -1,0 +1,7 @@
+[user]
+	name = Pradeepa Senanayake
+	email = pradeepa.senanayake@resmed.com.au
+[core]
+	autocrlf = input
+[credential]
+	helper = store
