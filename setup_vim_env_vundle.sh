@@ -90,14 +90,10 @@ au BufNewFile,BufRead *.py
 	\ set tabstop=4 |
 	\ set softtabstop=4 |
 	\ set shiftwidth=4 |
-	\ set textwidth=79 |
+	\ set textwidth=150 |
 	\ set expandtab |
 	\ set autoindent |
 	\ set fileformat=dos
-
-"Flag whitespaces
-highlight BadWhitespace ctermbg=darkgreen guibg=lightgreen
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set clipboard=unnamed
 
@@ -109,6 +105,10 @@ else
 endif
 
 set incsearch
+
+"Flag whitespaces
+highlight BadWhitespace ctermbg=darkgreen guibg=lightgreen
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 EOT
 
 echo "Setting up cscope"
