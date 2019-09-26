@@ -78,10 +78,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "search for text
-nmap <F3>1 :silent Ggrep! -r <C-R><C-W> *.c *.h<CR>:redr!<CR>:copen<CR>
-nmap <F3>2 :silent Ggrep! -r <C-R><C-W> *.cpp *.hpp<CR>:redr!<CR>:copen<CR>
-nmap <F3>3 :silent Ggrep! -r <C-R><C-W> *.py<CR>:redr!<CR>:copen<CR>
-nmap <F3>4 :silent Ggrep! -r <C-R><C-W> *<CR>:redr!<CR>:copen<CR>
+nmap <F3>1 :silent Ggrep! <C-R><C-W> *.c *.h<CR>:redr!<CR>:copen<CR>
+nmap <F3>2 :silent Ggrep! <C-R><C-W> *.cpp *.hpp<CR>:redr!<CR>:copen<CR>
+nmap <F3>3 :silent Ggrep! <C-R><C-W> *.py<CR>:redr!<CR>:copen<CR>
+nmap <F3>4 :silent Ggrep! <C-R><C-W> *<CR>:redr!<CR>:copen<CR>
 
 nmap <space> za
 
@@ -93,7 +93,7 @@ au BufNewFile,BufRead *.py
 	\ set textwidth=79 |
 	\ set expandtab |
 	\ set autoindent |
-	\ set fileformat=unix
+	\ set fileformat=dos
 
 "Flag whitespaces
 highlight BadWhitespace ctermbg=darkgreen guibg=lightgreen
