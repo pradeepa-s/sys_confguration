@@ -109,6 +109,12 @@ set incsearch
 "Flag whitespaces
 highlight BadWhitespace ctermbg=darkgreen guibg=lightgreen
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
+
 EOT
 
 echo "Setting up cscope"
