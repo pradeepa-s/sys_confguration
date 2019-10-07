@@ -45,7 +45,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 "Bundle 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
@@ -65,6 +65,7 @@ filetype plugin indent on    " required
 let python_highlight_all=1
 
 set relativenumber
+set number
 set syntax=on
 set cindent
 
@@ -82,11 +83,57 @@ nmap <F3>1 :silent Ggrep! <C-R><C-W> *.c *.h<CR>:redr!<CR>:copen<CR>
 nmap <F3>2 :silent Ggrep! <C-R><C-W> *.cpp *.hpp<CR>:redr!<CR>:copen<CR>
 nmap <F3>3 :silent Ggrep! <C-R><C-W> *.py<CR>:redr!<CR>:copen<CR>
 nmap <F3>4 :silent Ggrep! <C-R><C-W> *<CR>:redr!<CR>:copen<CR>
+nmap <F3>0 :silent Ggrep! <C-R><C-W>
+nmap <F3>pf :silent Ggrep! "def <C-R><C-W>" *.py<CR>:redr!<CR>:copen<CR>
 
 nmap <space> za
+nmap <leader>o :copen<CR>
+nmap <leader>c :cclose<CR>
+nmap <leader>r :redraw!<CR>
+nmap <leader>f :FZF<CR>
+
+nmap ,jt <ESC>ggi======================<CR>
+			\ISSUE<CR>======================<CR><ESC>kk0llll
 
 "python PEP8 indentation
 au BufNewFile,BufRead *.py
+	\ set tabstop=4 |
+	\ set softtabstop=4 |
+	\ set shiftwidth=4 |
+	\ set textwidth=150 |
+	\ set expandtab |
+	\ set autoindent |
+	\ set fileformat=dos |
+	\ nmap pdb A<CR>import pdb; pdb.set_trace()
+
+au BufNewFile,BufRead *.cpp
+	\ set tabstop=4 |
+	\ set softtabstop=4 |
+	\ set shiftwidth=4 |
+	\ set textwidth=150 |
+	\ set expandtab |
+	\ set autoindent |
+	\ set fileformat=dos
+
+au BufNewFile,BufRead *.hpp
+	\ set tabstop=4 |
+	\ set softtabstop=4 |
+	\ set shiftwidth=4 |
+	\ set textwidth=150 |
+	\ set expandtab |
+	\ set autoindent |
+	\ set fileformat=dos
+
+au BufNewFile,BufRead *.c
+	\ set tabstop=4 |
+	\ set softtabstop=4 |
+	\ set shiftwidth=4 |
+	\ set textwidth=150 |
+	\ set expandtab |
+	\ set autoindent |
+	\ set fileformat=dos
+
+au BufNewFile,BufRead *.h
 	\ set tabstop=4 |
 	\ set softtabstop=4 |
 	\ set shiftwidth=4 |
@@ -115,6 +162,9 @@ let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
+set incsearch
+set cursorline
+hi CursorLine term=bold cterm=bold
 EOT
 
 echo "Setting up cscope"
