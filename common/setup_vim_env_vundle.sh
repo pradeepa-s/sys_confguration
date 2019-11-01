@@ -42,18 +42,13 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
-Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
-"Bundle 'Valloric/YouCompleteMe'
-"Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
@@ -79,21 +74,28 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "search for text
-nmap <F3>1 :silent Ggrep! <C-R><C-W> *.c *.h<CR>:redr!<CR>:copen<CR>
-nmap <F3>2 :silent Ggrep! <C-R><C-W> *.cpp *.hpp<CR>:redr!<CR>:copen<CR>
-nmap <F3>3 :silent Ggrep! <C-R><C-W> *.py<CR>:redr!<CR>:copen<CR>
-nmap <F3>4 :silent Ggrep! <C-R><C-W> *<CR>:redr!<CR>:copen<CR>
-nmap <F3>0 :silent Ggrep! <C-R><C-W>
-nmap <F3>pf :silent Ggrep! "def <C-R><C-W>" *.py<CR>:redr!<CR>:copen<CR>
+nmap <F3>1 :silent grep! <C-R><C-W> --c<CR>:redr!<CR>:copen<CR>
+nmap <F3>2 :silent grep! <C-R><C-W> --cpp<CR>:redr!<CR>:copen<CR>
+nmap <F3>u2 :silent grep! <C-R><C-W> --cpp -U<CR>:redr!<CR>:copen<CR>
+nmap <F3>3 :silent grep! <C-R><C-W> --python<CR>:redr!<CR>:copen<CR>
+nmap <F3>4 :silent grep! <C-R><C-W> *<CR>:redr!<CR>:copen<CR>
+nmap <F3>0 :silent grep! <C-R><C-W>
+nmap <F3>pf :silent grep! "def <C-R><C-W>" *.py<CR>:redr!<CR>:copen<CR>
 
 nmap <space> za
 nmap <leader>o :copen<CR>
 nmap <leader>c :cclose<CR>
 nmap <leader>r :redraw!<CR>
 nmap <leader>f :FZF<CR>
-
+nmap <leader>fr :%s/<C-R><C-W>//gc<LEFT><LEFT><LEFT>
+nmap <leader>b :ls<CR>:b 
 nmap ,jt <ESC>ggi======================<CR>
 			\ISSUE<CR>======================<CR><ESC>kk0llll
+
+
+set tabstop=4
+set shiftwidth=4
+set textwidth=200
 
 "python PEP8 indentation
 au BufNewFile,BufRead *.py
@@ -103,7 +105,6 @@ au BufNewFile,BufRead *.py
 	\ set textwidth=150 |
 	\ set expandtab |
 	\ set autoindent |
-	\ set fileformat=dos |
 	\ nmap pdb A<CR>import pdb; pdb.set_trace()
 
 au BufNewFile,BufRead *.cpp
@@ -113,7 +114,7 @@ au BufNewFile,BufRead *.cpp
 	\ set textwidth=150 |
 	\ set expandtab |
 	\ set autoindent |
-	\ set fileformat=dos
+	\ nmap <leader>g I// <ESC>
 
 au BufNewFile,BufRead *.hpp
 	\ set tabstop=4 |
@@ -122,7 +123,7 @@ au BufNewFile,BufRead *.hpp
 	\ set textwidth=150 |
 	\ set expandtab |
 	\ set autoindent |
-	\ set fileformat=dos
+	\ nmap <leader>g I// <ESC>
 
 au BufNewFile,BufRead *.c
 	\ set tabstop=4 |
@@ -132,6 +133,7 @@ au BufNewFile,BufRead *.c
 	\ set expandtab |
 	\ set autoindent |
 	\ set fileformat=dos
+	\ nmap <leader>g I// <ESC>
 
 au BufNewFile,BufRead *.h
 	\ set tabstop=4 |
@@ -141,6 +143,7 @@ au BufNewFile,BufRead *.h
 	\ set expandtab |
 	\ set autoindent |
 	\ set fileformat=dos
+	\ nmap <leader>g I// <ESC>
 
 set clipboard=unnamed
 
@@ -165,6 +168,10 @@ let &t_te.="\e[0 q"
 set incsearch
 set cursorline
 hi CursorLine term=bold cterm=bold
+
+if executable('ag')
+	set grepprg=ag\ --nogroup\ --nocolor
+endif
 EOT
 
 echo "Setting up cscope"
