@@ -44,14 +44,15 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'jnurmine/Zenburn'
+Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -132,7 +133,7 @@ au BufNewFile,BufRead *.c
 	\ set textwidth=150 |
 	\ set expandtab |
 	\ set autoindent |
-	\ set fileformat=dos
+	\ set fileformat=dos |
 	\ nmap <leader>g I// <ESC>
 
 au BufNewFile,BufRead *.h
@@ -142,7 +143,7 @@ au BufNewFile,BufRead *.h
 	\ set textwidth=150 |
 	\ set expandtab |
 	\ set autoindent |
-	\ set fileformat=dos
+	\ set fileformat=dos |
 	\ nmap <leader>g I// <ESC>
 
 set clipboard=unnamed
