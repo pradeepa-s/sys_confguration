@@ -1,13 +1,17 @@
 #! /bin/bash
 
+echo "Setting up work environment"
+
 CURRENT_DIR=$(pwd)
 # MAIN_DIR=/cygdrive/c/src
 MAIN_DIR=~/fgrepo
-
 MY_HOME=~
+
+echo "Using $MAIN_DIR as the main directory"
 
 cd $MY_HOME 
 touch .bashrc
+echo "Backing up current .bashrc file in .bashrc.pradeepa.backup"
 cp .bashrc .bashrc.pradeepa.backup
 
 cat <<EOT >> .bashrc
@@ -30,6 +34,7 @@ alias fgsetup='mkdir -p $MAIN_DIR/master && cd $MAIN_DIR/master && fgclone && fg
 alias tmux='tmux -2'
 alias cgrep='grep --color'
 EOT
+echo "Updated .bashrc"
 
 # Force cygwin to use windows git
 echo "Setting up git environment"
@@ -39,7 +44,6 @@ USER_EMAIL="pradeepa.senanayake@resmed.com.au"
 
 git config --global user.name "$USER_NAME"
 git config --global user.email $USER_EMAIL
-# git config --global credential.helper store
 
 # Hardware configuration for target testing
 cat <<EOT >> $MY_HOME/Hw.py
@@ -50,3 +54,8 @@ configList = [
     },
 ]
 EOT
+
+echo "Execute following shell scripts:"
+echo "Colours: setup_mintty_colours.sh"
+echo "tmux config: setup_tmux.sh"
+echo "vim config: setup_vim_env_vundle.sh"

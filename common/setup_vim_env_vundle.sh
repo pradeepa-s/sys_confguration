@@ -6,7 +6,7 @@ echo "Setting up vim environment for Pradeepa"
 
 echo "Creating the .vimrc"
 
-REPO_DIR=$(pwd)
+REPO_DIR=$(pwd)/../
 HOME_DIR=~
 VIM_DIR=$HOME_DIR/.vim
 VIM_RC=$HOME_DIR/.vimrc
