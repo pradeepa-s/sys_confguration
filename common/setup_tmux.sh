@@ -7,6 +7,7 @@ cp .tmux.conf .tmux.conf.pradeepa.backup
 cat <<EOT > .tmux.conf
 set -g base-index 1
 
+set-environment -g CHERE_INVOKING 1
 set-window-option -g automatic-rename on
 set-option -g set-titles on
 
@@ -18,8 +19,9 @@ set -g default-terminal "screen-256color"
 setw -g mode-keys vi
 setw -g monitor-activity on
 
-bind-key v split-window -h
-bind-key s split-window -v
+bind-key v split-window -h -c "#{pane_current_path}"
+bind-key s split-window -v -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
 
 bind-key J resize-pane -D 5
 bind-key K resize-pane -U 5
@@ -47,6 +49,11 @@ bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
 
 set -sg escape-time 0
+
+bind P paste-buffer
+bind-key -T copt-mode-vi v send-keys -X begin-selection
+bind-key -T copt-mode-vi y send-keys -X copy-selection
+bind-key -T copt-mode-vi r send-keys -X rectangle-toggle
 
 bind r source-file ~/.tmux.conf
 
