@@ -48,6 +48,8 @@ bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
 
+bind-key Z resize-pane -Z
+
 set -sg escape-time 0
 
 bind P paste-buffer
